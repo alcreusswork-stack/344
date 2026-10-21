@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPCスポーツ教室 岐阜各務原店 | 体幹特化・園児〜シニアまで</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B1A;
+      --orange-light: #FF8C45;
+      --blue: #00AADD;
+      --blue-light: #33C1ED;
+      --navy: #1A2C5B;
+      --yellow: #FFD700;
+      --white: #FFFFFF;
+      --gray-light: #F5F8FC;
+      --gray-text: #555;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header__logo {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 900;
+      line-height: 1.3;
+      transition: opacity .2s;
+    }
+    .header__logo span {
+      display: block;
+      font-size: .72rem;
+      font-weight: 400;
+      color: var(--blue-light);
+      letter-spacing: .04em;
+    }
+    .header__logo:hover { opacity: .8; }
+
+    .header__cta {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .82rem;
+      padding: 10px 18px;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .header__cta:hover { background: var(--orange-light); }
+
+    /* ===== HERO IMAGE ===== */
+    .hero-img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ===== HERO COPY ===== */
+    .hero-copy {
+      background: linear-gradient(135deg, var(--navy) 0%, #243A7A 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 48px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 200px; height: 200px;
+      background: var(--orange);
+      border-radius: 50%;
+      opacity: .12;
+    }
+    .hero-copy::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: var(--blue);
+      border-radius: 50%;
+      opacity: .15;
+    }
+
+    .hero-copy__tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+      letter-spacing: .06em;
+    }
+
+    .hero-copy__title {
+      font-size: clamp(1.7rem, 6vw, 3rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy__title em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+
+    .hero-copy__sub {
+      font-size: clamp(.9rem, 2.5vw, 1.1rem);
+      color: rgba(255,255,255,.85);
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-copy__btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 16px 34px;
+      border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(255,107,26,.4);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,107,26,.5); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,.5);
+      transition: border-color .15s, background .15s;
+    }
+    .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* ===== WAVE ===== */
+    .wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 64px 24px;
+    }
+    .section--gray { background: var(--gray-light); }
+    .section--navy { background: var(--navy); color: var(--white); }
+    .section--orange { background: var(--orange); color: var(--white); }
+
+    .section__inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section__label {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      letter-spacing: .08em;
+    }
+    .section--navy .section__label { background: var(--blue); }
+
+    .section__title {
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .section__desc {
+      color: var(--gray-text);
+      font-size: .97rem;
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+    .section--navy .section__desc { color: rgba(255,255,255,.75); }
+
+    /* ===== FEATURE CARDS ===== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(26,44,91,.07);
+      border-top: 4px solid var(--orange);
+    }
+    .feature-card:nth-child(2) { border-top-color: var(--blue); }
+    .feature-card:nth-child(3) { border-top-color: var(--yellow); }
+    .feature-card:nth-child(4) { border-top-color: #4CAF50; }
+    .feature-card:nth-child(5) { border-top-color: #9C27B0; }
+    .feature-card:nth-child(6) { border-top-color: var(--orange-light); }
+
+    .feature-card__icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+    .feature-card__title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+    .feature-card__text {
+      font-size: .88rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+    }
+
+    /* ===== CLASS HIGHLIGHT ===== */
+    .class-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, #0082BB 100%);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .class-banner__title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .class-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .class-list li {
+      background: rgba(255,255,255,.2);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    /* ===== STATS ROW ===== */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .stat-card__num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card__num span { font-size: 1.1rem; }
+    .stat-card__label {
+      font-size: .82rem;
+      color: rgba(255,255,255,.8);
+    }
+
+    /* ===== STORY ===== */
+    .story-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(26,44,91,.07);
+      border-left: 5px solid var(--orange);
+    }
+    .story-box__title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .story-box__text {
+      font-size: .92rem;
+      color: var(--gray-text);
+      line-height: 1.8;
+    }
+
+    /* ===== REVIEWS ===== */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: 0 2px 12px rgba(26,44,91,.07);
+    }
+
+    .review-card__stars {
+      color: var(--orange);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .review-card__text {
+      font-size: .88rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+    }
+
+    /* ===== COMING SOON ===== */
+    .coming-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+    .coming-box {
+      background: linear-gradient(135deg, #FFF8E7 0%, #FFF3CC 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 2px dashed var(--yellow);
+    }
+    .coming-box__title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .coming-box__text {
+      font-size: .9rem;
+      color: var(--gray-text);
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--orange) 0%, #FF4500 100%);
+      padding: 64px 24px;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-section__title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .cta-section__sub {
+      font-size: 1rem;
+      opacity: .9;
+      margin-bottom: 32px;
+    }
+    .cta-btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 18px 44px;
+      border-radius: 50px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.2);
+      transition: transform .15s;
+    }
+    .cta-btn-white:hover { transform: translateY(-2px); }
+
+    /* ===== INFO TABLE ===== */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+    .info-table tr {
+      border-bottom: 1px solid #E8EDF5;
+    }
+    .info-table tr:first-child { border-top: 1px solid #E8EDF5; }
+    .info-table th {
+      width: 130px;
+      padding: 16px 14px;
+      background: #EEF3FB;
+      font-weight: 700;
+      color: var(--navy);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .info-table td {
+      padding: 16px 14px;
+      color: var(--gray-text);
+      vertical-align: top;
+    }
+    .info-table a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    /* ===== MAP ===== */
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(26,44,91,.1);
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
+    }
+    .map-link-wrap {
+      text-align: center;
+    }
+    .map-link-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: background .2s;
+    }
+    .map-link-btn:hover { background: var(--blue-light); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.8);
+      padding: 48px 24px 32px;
+    }
+    .footer__inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer__name {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer__address {
+      font-size: .83rem;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .footer__sns {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .footer__sns a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      transition: opacity .2s;
+    }
+    .footer__sns a:hover { opacity: .75; }
+
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: .82rem;
+      margin-bottom: 28px;
+    }
+    .footer__links a {
+      color: var(--blue-light);
+      text-decoration: underline;
+    }
+
+    .footer__copy {
+      font-size: .75rem;
+      color: rgba(255,255,255,.4);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .header { flex-direction: column; gap: 10px; text-align: center; }
+      .info-table th { width: 90px; font-size: .83rem; }
+      .hero-copy { padding: 36px 18px 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <a href="https://jpc-sports.com/gifukakamigahara/" class="header__logo" target="_blank" rel="noopener">
+      JPCスポーツ教室<br>岐阜各務原店
+      <span>体幹特化・園児〜シニアまで</span>
+    </a>
+    <a href="https://jpc-sports.com/gifukakamigahara/corp-contact/" class="header__cta" target="_blank" rel="noopener">
+      お問い合わせ
+    </a>
+  </header>
+
+  <!-- ===== HERO IMAGE ===== -->
+  <img
+    src="images/hero.jpg"
+    alt="JPCスポーツ教室 岐阜各務原店 子どもたちが元気に体操している様子"
+    class="hero-img"
+  >
+
+  <!-- ===== HERO COPY ===== -->
+  <section class="hero-copy">
+    <span class="hero-copy__tag">岐阜各務原市 体幹・体操教室</span>
+    <h1 class="hero-copy__title">
+      「できた！」が<em>自信</em>になる。<br>
+      体幹から育てる<em>子どもの可能性</em>
+    </h1>
+    <p class="hero-copy__sub">
+      園児から通える体幹特化の体操教室。プロも実践する独自メソッドで、運動が苦手な子も「できた！」を積み重ねられます。
+    </p>
+    <div class="hero-copy__btns">
+      <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" class="btn-primary" target="_blank" rel="noopener">
+        無料体験を申し込む
+      </a>
+      <a href="#about" class="btn-secondary">教室について知る</a>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="section section--navy" id="about">
+    <div class="section__inner">
+      <span class="section__label">JPCの実績</span>
+      <h2 class="section__title">子どもたちの「好き」を育てる教室</h2>
+      <p class="section__desc">体験授業に参加したお子さまの約90%が「また来たい！」と答えています。</p>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card__num">90<span>%以上</span></div>
+          <div class="stat-card__label">体験後の継続希望率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">2<span>歳〜</span></div>
+          <div class="stat-card__label">幅広い年齢に対応</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">全国<span>展開</span></div>
+          <div class="stat-card__label">岐阜羽島から全国へ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--navy);"><path d="M0 40 Q360 0 720 40 Q1080 80 1440 40 L1440 40 L0 40Z" fill="#F5F8FC"/></svg>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section section--gray">
+    <div class="section__inner">
+      <span class="section__label">選ばれる理由</span>
+      <h2 class="section__title">JPCスポーツ教室が選ばれる6つの理由</h2>
+      <p class="section__desc">子どもの体と心を総合的に育てる環境が揃っています。</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">💪</div>
+          <div class="feature-card__title">体幹特化の独自メソッド「KOBAトレ」</div>
+          <p class="feature-card__text">プロも実践するKOBAトレを導入。柔軟性・バランス・連動性を高め、あらゆるスポーツの土台を作ります。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">👀</div>
+          <div class="feature-card__title">丁寧な指導</div>
+          <p class="feature-card__text">一人ひとりの個性やレベルに合わせた丁寧なコーチングで、運動が苦手な子も安心して参加できます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🌱</div>
+          <div class="feature-card__title">心・技・体のトータル育成</div>
+          <p class="feature-card__text">技術だけでなく、挨拶・礼儀・あきらめない心など、社会で活躍するための「人間力」を育てます。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🎯</div>
+          <div class="feature-card__title">園児〜シニアまで全世代対応</div>
+          <p class="feature-card__text">体操・体幹クラスからアスリート向けトレーニング、60歳以上のシニアクラスまで全世代が対象です。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔄</div>
+          <div class="feature-card__title">柔軟な振替・特別用具不要</div>
+          <p class="feature-card__text">欠席時の振替対応も柔軟で、特別なウェアや用具の購入が不要。他の習い事や仕事との両立がしやすい環境です。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🚗</div>
+          <div class="feature-card__title">充実した駐車場</div>
+          <p class="feature-card__text">店舗横の駐車場に加え、徒歩1分以内に10台分の契約駐車場があり、車での送迎にも便利です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLASS ===== -->
+  <section class="section">
+    <div class="section__inner">
+      <span class="section__label">クラス紹介</span>
+      <h2 class="section__title">イチオシのカリキュラム</h2>
+      <p class="section__desc">遊びを通して自然に体幹を鍛える、JPCだけの独自プログラムです。</p>
+
+      <div class="class-banner">
+        <div class="class-banner__title">体幹特化カリキュラム　遊びながら「カラダの使い方」をマスター</div>
+        <p style="font-size:.9rem;opacity:.9;">マット・跳び箱・鉄棒などの器械体操を中心に、「できた！」という成功体験を積み重ねながら自信をつけていきます。運動能力だけでなく「心」や「考える力」も養います。</p>
+        <ul class="class-list">
+          <li>体操・体幹クラス</li>
+          <li>アスリートクラス</li>
+          <li>シニアクラス（60歳〜）</li>
+        </ul>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#FFF3E0 0%,#FFF8F0 100%);border-radius:var(--radius);padding:24px;border-left:4px solid var(--orange);">
+        <p style="font-weight:700;color:var(--orange);font-size:.95rem;margin-bottom:6px;">🏆 アスリート輩出実績</p>
+        <p style="font-size:.88rem;color:var(--gray-text);">アスリートクラスからは甲子園出場者やプロゴルファーも誕生しています（個人の成果には差があります）。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#fff;"><path d="M0 0 Q360 40 720 0 Q1080 -40 1440 0 L1440 40 L0 40Z" fill="#F5F8FC"/></svg>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="section section--gray">
+    <div class="section__inner">
+      <span class="section__label">お客様の声</span>
+      <h2 class="section__title">通われているご家族からの声</h2>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">小学生の子ども2人が通っています。体育が苦手な子ども達ですが、週に1回身体の動かし方を学ぶ機会を作ることで、運動への抵抗感がなくなったように思います。最近の夏は暑くてなかなか公園遊びもできないご時世ですが、毎週楽しく身体を動かしているようです。</p>
+        </div>
+        <div class="review-card">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">運動が苦手な子ども達ですが、優しいコーチ達が大好きで楽しく通っています。〇〇ができるようになったよと報告してくれる事もあり、通わせて良かったです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORY ===== -->
+  <section class="section">
+    <div class="section__inner">
+      <span class="section__label">代表者メッセージ</span>
+      <h2 class="section__title">創業者の想い</h2>
+      <div class="story-box">
+        <div class="story-box__title">「子どもたちが楽しみながら成長できる空間を」</div>
+        <p class="story-box__text">
+          JPCスポーツ教室を創業した株式会社J-PRoach代表取締役の髙木宏昌は、4児の父親として「子ども達が楽しみながら成長できる空間を構築したい」という思いから教室をスタートしました。<br><br>
+          子ども自身が成長を掴み取れる環境づくりを大切にし、「遊び」を通して体を動かしながら、考える力やコミュニケーション力を育むことを目指しています。岐阜県羽島市から始まった取り組みは、現在全国へと広がっています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMING SOON ===== -->
+  <section class="section section--gray">
+    <div class="section__inner">
+      <span class="section__label">準備中のサービス</span>
+      <h2 class="section__title">もうすぐスタート！</h2>
+      <span class="coming-badge">COMING SOON</span>
+      <div class="coming-box">
+        <div class="coming-box__title">🥦 親子で学べる食育講座</div>
+        <p class="coming-box__text">スポーツをする体づくりのための食育講座を準備中。親子で一緒に「食べること」を学べる新プログラムです。詳細は決まり次第お知らせします。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <h2 class="cta-section__title">まずは無料体験から始めよう！</h2>
+    <p class="cta-section__sub">お子さまのペースに合わせて、楽しく体を動かす第一歩を踏み出しませんか？</p>
+    <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" class="cta-btn-white" target="_blank" rel="noopener">
+      体験レッスンを申し込む →
+    </a>
+  </section>
+
+  <!-- ===== INFO ===== -->
+  <section class="section">
+    <div class="section__inner">
+      <span class="section__label">教室情報</span>
+      <h2 class="section__title">アクセス・基本情報</h2>
+      <table class="info-table" style="margin-bottom:40px;">
+        <tr>
+          <th>教室名</th>
+          <td>JPCスポーツ教室 岐阜各務原店</td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td>〒504-0833 岐阜県各務原市入会町４丁目１</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td><a href="tel:0582005758">058-200-5758</a></td>
+        </tr>
+        <tr>
+          <th>休校日</th>
+          <td>日曜・祝日（祝日営業日あり）</td>
+        </tr>
+        <tr>
+          <th>運営会社</th>
+          <td>株式会社J-PRoach　代表：髙木 宏昌</td>
+        </tr>
+        <tr>
+          <th>公式HP</th>
+          <td><a href="https://jpc-sports.com/gifukakamigahara/" target="_blank" rel="noopener">https://jpc-sports.com/gifukakamigahara/</a></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ</th>
+          <td><a href="https://jpc-sports.com/gifukakamigahara/corp-contact/" target="_blank" rel="noopener">お問い合わせフォームはこちら</a></td>
+        </tr>
+        <tr>
+          <th>SNS</th>
+          <td><a href="https://www.instagram.com/jpc_gifukakamigahara/" target="_blank" rel="noopener">Instagram @jpc_gifukakamigahara</a></td>
+        </tr>
+      </table>
+
+      <!-- MAP -->
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.918126216106!2d136.853406!3d35.4072799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600307f04aa87f69%3A0x3efd8ad9e00b6f8a!2zSlBD44K544Od44O844OE5pWZ5a6k5bKQ6Zic5ZCE5YuZ5Y6f5bqX!5e0!3m2!1sja!2sjp!4v1792211295280!5m2!1sja!2sjp"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          title="JPCスポーツ教室 岐阜各務原店 地図"
+        ></iframe>
+      </div>
+      <div class="map-link-wrap">
+        <a
+          href="https://www.google.com/maps/place/JPC%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E6%95%99%E5%AE%A4%E5%B2%90%E9%98%9C%E5%90%84%E5%8B%99%E5%8E%9F%E5%BA%97/@35.4072799,136.853406,17z/data=!3m2!4b1!5s0x600307d9f69977e5:0x2b9e9ccd857203ab!4m6!3m5!1s0x600307f04aa87f69:0x3efd8ad9e00b6f8a!8m2!3d35.4072799!4d136.853406!16s%2Fg%2F11sq4s7trg?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+          class="map-link-btn"
+          target="_blank"
+          rel="noopener"
+        >
+          Googleマップで見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__name">JPCスポーツ教室 岐阜各務原店</div>
+      <div class="footer__address">
+        〒504-0833 岐阜県各務原市入会町４丁目１<br>
+        TEL: <a href="tel:0582005758" style="color:var(--blue-light);">058-200-5758</a>　
+        休校日：日曜・祝日（祝日営業日あり）<br>
+        運営：株式会社J-PRoach
+      </div>
+
+      <!-- SNS -->
+      <div class="footer__sns">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/jpc_gifukakamigahara/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ig-grad" cx="30%" cy="107%" r="130%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="20%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="100%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect width="40" height="40" rx="10" fill="url(#ig-grad)"/>
+            <rect x="10" y="10" width="20" height="20" rx="5.5" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="20" cy="20" r="5" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="26.5" cy="13.5" r="1.2" fill="white"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer__links">
+        <a href="https://jpc-sports.com/gifukakamigahara/" target="_blank" rel="noopener">公式サイト</a>
+        <a href="https://jpc-sports.com/gifukakamigahara/corp-contact/" target="_blank" rel="noopener">お問い合わせ</a>
+      </div>
+
+      <div class="footer__copy">
+        &copy; 2024 株式会社J-PRoach / JPCスポーツ教室 岐阜各務原店 All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
